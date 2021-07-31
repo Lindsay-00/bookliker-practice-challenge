@@ -105,8 +105,9 @@ function renderOneBook(book){
 
                 btn.innerText = "LIKE"
 
-                book.users.pop()
-                const newUsers = book.users
+            
+                const newUsers = book.users.filter(user => user["username"] != currUser.username)
+
                 fetch(`http://localhost:3000/books/${book.id}`, {
                     method: 'PATCH',
                     headers: {
